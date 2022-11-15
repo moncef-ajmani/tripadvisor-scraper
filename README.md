@@ -22,8 +22,8 @@ pip install -r requirements.txt
 python scraper.py <url> <filename> [<max_reviews_per_hotel>]
 ```
 
-* url: The search results page URL of TripAdvisor. For example: https://www.tripadvisor.in/Hotels-g304551-Mumbai_Maharashtra-Hotels.html
-* filename: The name of the CSV file where the scraped data will be stored. For example: mumbai_hotels
+* url: The search results page URL of TripAdvisor. For example: https://www.tripadvisor.com/Hotels-g293732-Casablanca_Casablanca_Settat-Hotels.html
+* filename: The name of the CSV file where the scraped data will be stored. For example: casablanca_hotels_reviews
 * max_reviews_per_hotel (optional): The maximum number of reviews to be scraped for each hotel. The default value is 0, which means all reviews will be scraped.
 
 ## Example
