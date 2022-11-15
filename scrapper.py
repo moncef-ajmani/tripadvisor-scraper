@@ -41,6 +41,7 @@ def get_hotels_links_reviews_count(url):
     print(f"{colored(len(data), 'green')} hotels founded.")
 
     return data
+
 # define a function get_reviews_from_hotel that takes an url as a parameter and return a list of reviews
 def get_reviews_from_hotel(url,number_reviews,max_reviews):
     global reviews_count
