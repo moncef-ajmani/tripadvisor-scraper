@@ -16,10 +16,10 @@ This is a scrapper that scrapes reviews from tripadvisor.
 
 pip install -r requirements.txt
 
-- Run the scrapper.py file with the following command:
+- Run the scraper.py file with the following command:
 
 ```
-python tripadvisor_scraper.py <url> <filename> [<max_reviews_per_hotel>]
+python scraper.py <url> <filename> [<max_reviews_per_hotel>]
 ```
 
 * url: The search results page URL of TripAdvisor. For example: https://www.tripadvisor.in/Hotels-g304551-Mumbai_Maharashtra-Hotels.html
