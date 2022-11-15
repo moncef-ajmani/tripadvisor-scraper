@@ -2,7 +2,7 @@
 
 This is a scrapper that scrapes reviews from tripadvisor.
 
-##Requirements
+## Requirements
 
 - Python 3.7.4
 - BeautifulSoup 4
@@ -10,7 +10,7 @@ This is a scrapper that scrapes reviews from tripadvisor.
 - csv
 - termcolor
 
-##Usage
+## Usage
 
 - Run the following command to install the required libraries:
 
@@ -24,7 +24,7 @@ python scrapper.py <url> <filename> [<max_reviews_per_hotel>]
 - <filename>: The name of the CSV file that will be created.
 - <max_reviews_per_hotel>: (optional) The maximum number of reviews to be scraped from each hotel. If not specified, all reviews will be scraped.
 
-##Example
+## Example
 
 python scrapper.py https://www.tripadvisor.com/Hotels-g293732-Casablanca_Casablanca_Settat-Hotels.html casablanca_hotels_reviews 10
 
