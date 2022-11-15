@@ -1,5 +1,4 @@
-Python 3.7.4
-BeautifulSoup 4
-requests 2.22.0
+bs4
+requests
 csv
 termcolor
