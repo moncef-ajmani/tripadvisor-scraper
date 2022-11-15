@@ -1,4 +1,4 @@
-#Tripadvisor scrapper
+# Tripadvisor scrapper
 
 This is a scrapper that scrapes reviews from tripadvisor.
 
