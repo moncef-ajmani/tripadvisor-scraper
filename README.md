@@ -28,6 +28,8 @@ python tripadvisor_scraper.py <url> <filename> [<max_reviews_per_hotel>]
 
 ## Example
 
+```
 python scrapper.py https://www.tripadvisor.com/Hotels-g293732-Casablanca_Casablanca_Settat-Hotels.html casablanca_hotels_reviews 10
+```
 
 This will scrape reviews for all hotels in Cansablanca and store up to 10 reviews for each hotel in the file casablanca_hotels_reviews.csv.
