@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 - Run the scrapper.py file with the following command:
 
-python scrapper.py <url> <filename> [<max_reviews_per_hotel>]
+python scrapper.py "<url>" <filename> [<max_reviews_per_hotel>]
 
 - <url>: The URL of the search results page on tripadvisor.
 - <filename>: The name of the CSV file that will be created.
