@@ -63,15 +63,10 @@ def get_reviews_from_hotel(url,number_reviews):
     #     writer = csv.DictWriter(f, fieldnames = ["text","rating"])
     #     writer.writeheader()
     #     writer.writerows(reviews)
-    #     # for review in reviews:
-    #     #     f.write("'"+review["text"]+"';"+ str(review["rating"])+"\n")
     return reviews
 
-def get_reviews(file_path):
+def get_reviews():
     pass
 
-get_hotels_link_rating("hotels.csv",url)
-# get_reviews_from_hotel("reviews.csv")
 
-get_reviews("hotels.csv")
 
