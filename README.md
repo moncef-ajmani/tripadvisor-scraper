@@ -28,7 +28,7 @@ python tripadvisor_scraper.py <url> <filename> [<max_reviews_per_hotel>]
 
 ## Example
 
-````
+```
 python scraper.py https://www.tripadvisor.com/Hotels-g293732-Casablanca_Casablanca_Settat-Hotels.html casablanca_hotels_reviews 3
 ```
 
