@@ -1,6 +1,6 @@
 # Tripadvisor scrapper
 
-This is a scrapper that scrapes reviews from tripadvisor.
+This is a script that scrapes reviews from tripadvisor.
 
 ## Requirements
 
