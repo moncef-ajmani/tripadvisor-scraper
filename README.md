@@ -1,6 +1,6 @@
-# Tripadvisor scrapper
+# Tripadvisor scraper
 
-This is a scrapper that scrapes reviews from tripadvisor.
+This is a script that scrapes reviews of hotels from tripadvisor.
 
 ## Requirements
 
@@ -16,7 +16,7 @@ This is a scrapper that scrapes reviews from tripadvisor.
 
 pip install -r requirements.txt
 
-- Run the scrapper.py file with the following command:
+- Run the scraper.py file with the following command:
 
 ```
 python tripadvisor_scraper.py <url> <filename> [<max_reviews_per_hotel>]
