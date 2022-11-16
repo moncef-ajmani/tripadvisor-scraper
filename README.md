@@ -1,4 +1,4 @@
-# Tripadvisor scrapper
+# Tripadvisor scraper
 
 This is a script that scrapes reviews of hotels from tripadvisor.
 
