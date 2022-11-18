@@ -27,7 +27,6 @@ def get_number_pages(url):
 # define a function get_hotels_links_reviews_count that takes an url as a parameter and return a list of links of all hotels
 def get_hotels_links_reviews_count(url):
     data = []
-
     # get all hotels links with reviews count
     for i in range(0,get_number_pages(url)):
         if i!=0:
@@ -40,19 +39,26 @@ def get_hotels_links_reviews_count(url):
             obj = {}
             obj["link"] = row.find("div",{"class":"listing_title"}).a['href']
             obj["reviews_count"] = int(re.split(" ",row.find("a",{"class":"review_count"}).text)[0].replace(",",""))
-            if obj["reviews_count"] !=0:
-                data.append(obj)
+            data.append(obj)
     print(f"{colored(len(data), 'green')} hotels founded.")
     
     return data
 
+def get_total_reviews(data):
+    total = 0
+    for row in data:
+        total += row["reviews_count"]
+    print(f"Total Reviews: {total}\n")
+    return total
+
 # define a function get_reviews_from_hotel that takes an url as a parameter and return a list of reviews
-def get_reviews_from_hotel(url,number_reviews,max_reviews):
+def get_reviews_from_hotel(url,number_reviews,max_reviews=0):
     global reviews_count
     reviews = []
-    pages_count = number_reviews
-    if(max_reviews):
+    pages_count = int((number_reviews/10))+1
+    if max_reviews:
         pages_count = int((max_reviews/10))+1
+
     for i in range(0,pages_count):
         if url!=0:
             url = re.split("-",url)
@@ -61,13 +67,13 @@ def get_reviews_from_hotel(url,number_reviews,max_reviews):
         
         soup = getHTML(url)
         for row in soup.find_all("div",{"class":"WAllg _T"}):
+            if(max_reviews and len(reviews) == max_reviews):
+                reviews_count += max_reviews
+                return reviews[:max_reviews]
             review = {}
             review["text"]= row.find("q",{"class":"QewHA"}).text
             review["rating"] = int(re.findall("\d*$",row.find("div",{"class":"Hlmiy"}).span["class"][1])[0])/10
             reviews.append(review)
-    if max_reviews:
-        reviews_count += max_reviews
-        return reviews[:max_reviews]
     reviews_count += len(reviews)
     return reviews
 
@@ -75,27 +81,26 @@ def get_reviews_from_hotel(url,number_reviews,max_reviews):
 def get_reviews(url,filename,max_reviews_per_hotel=0):
     with open(f"{filename}.csv",'w',encoding="utf-8") as f:
         links = get_hotels_links_reviews_count(url)
+        total = get_total_reviews(links)
+        
         writer = csv.DictWriter(f, fieldnames = ["text","rating"])
         writer.writeheader()
-        print("Start Scraping reviews...")
         for row in links:
             if row['reviews_count']==0:continue
             reviews = get_reviews_from_hotel(f"https://www.tripadvisor.in{row['link']}",row['reviews_count'],max_reviews_per_hotel)
             writer.writerows(reviews)
-
-            print(f"{colored(reviews_count, 'green')} reviews added Successfully.",end="\r")
-    
-
+            print(f"{colored(reviews_count, 'green')} / {total} reviews.",end="\r")
+            
 # main Program 
 if __name__ == "__main__":
     start_time = time.time()
 
-    print(colored("Start...\n",'blue'))
+    print(colored("Start...",'blue'))
     max_reviews = 0
     if(len(sys.argv)>3):
         max_reviews = int(sys.argv[3])
 
-    get_reviews(sys.argv[1],sys.argv[2],max_reviews)
+    get_reviews(sys.argv[1],sys.argv[2])
     print(colored("\nDone :)","blue"))
 
     print(colored("--- %s seconds ---"%(time.time() - start_time),"yellow"))
