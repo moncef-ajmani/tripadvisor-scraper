@@ -14,7 +14,9 @@ This is a script that scrapes reviews of hotels from tripadvisor.
 
 - Run the following command to install the required libraries:
 
+```
 pip install -r requirements.txt
+```
 
 - Run the scraper.py file with the following command:
 
